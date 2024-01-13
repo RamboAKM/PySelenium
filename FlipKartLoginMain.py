@@ -1,16 +1,14 @@
 """ Flip kart login code"""
-from TrialScripts.Flipkart_Login.Common import CommonOperation
+import PyWebDriver
 import time
 
 
-class FlipKart(CommonOperation):
+class FlipKart(PyWebDriver):
     """ Flip Kart operations """
 
     def login(self, user_name, password):
         """ Login function """
         self.launch_browser(url='https://www.flipkart.com/')
-        # self.wait_for_element_visible(element_attribute='PARTIAL_TEXT', element_value='Login & Signup')
-        # self.click_on_element_by_text(text_value='Login & Signup')
         self.wait_for_element_visible(element_attribute='PARTIAL_TEXT', element_value='Login')
         self.click_on_element_by_xpath(xpath_value='/html/body/div[2]/div/div/div/div/div[2]/div/form/div[1]/input')
         self.input_text(element_attribute='XPATH',
@@ -20,7 +18,6 @@ class FlipKart(CommonOperation):
         self.input_text(element_attribute='XPATH',
                         element_value='/html/body/div[2]/div/div/div/div/div[2]/div/form/div[2]/input',
                         text_value=password)
-        # self.click_on_element_by_partial_text(partial_text_value='Login')
         self.click_on_element_by_xpath(
             xpath_value='/html/body/div[2]/div/div/div/div/div[2]/div/form/div[3]/button/span')
 
@@ -37,5 +34,5 @@ class FlipKart(CommonOperation):
 
 
 flip_kart_object = FlipKart()
-flip_kart_object.login(user_name='8050788500', password='arunkumar@2013')
+flip_kart_object.login(user_name='789879879798', password='78987979878')
 flip_kart_object.search_for_item(item_name='Honor Play')
